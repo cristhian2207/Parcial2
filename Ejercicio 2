@@ -1,1 +1,67 @@
+using System;
 
+namespace Parcial2
+{
+    class Cargar
+    {
+        #region
+        private string[] nombre_Empleados;
+        private float[] salario;
+
+        public void CargarMetodo()
+        {
+            nombre_Empleados = new string[5];
+            salario = new float[5];
+            for (int u = 0; u < nombre_Empleados.Length; u++)
+            {
+                Console.WriteLine("Nombre del empleado " + (u + 1) + ":");
+                nombre_Empleados[u] = Console.ReadLine();
+                Console.WriteLine("Su salario mensual es" + ":");
+                string lni;
+                lni = Console.ReadLine();
+                salario[u] = float.Parse(lni);
+            }
+
+        }
+        #endregion
+        //Primera función
+
+        #region
+        public void mayor()
+        {
+
+            float maxx;
+            int s;
+            maxx = salario[0];
+            s = 0;
+            for (int u = 1; u < nombre_Empleados.Length; u++)
+            {
+                if (salario[u] > maxx)
+                {
+                    maxx = salario[u];
+                    s = u;
+                }
+            }
+
+            Console.WriteLine("\nEl empleado de mayor suelo es : " + nombre_Empleados[s]);
+            Console.WriteLine("Su sueldo es: " + maxx);
+            Console.ReadKey();
+        }
+    }
+    #endregion
+        //Segunda función
+}
+
+namespace Parcial2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Cargar result = new Cargar();
+
+            result.CargarMetodo();
+            result.mayor();
+        }
+    }
+}
